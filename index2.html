@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Armoise Kim | 大阪福島区の韓方よもぎ蒸しサロン</title>
+    <meta
+      name="description"
+      content="大阪市福島区の韓方熟成よもぎ蒸しサロン Armoise Kim（アルモワーズキム）。熟成よもぎ×モリンガ×ハーブの温活で体質改善。無料の韓国語会話レッスンも人気。JR野田駅・玉川駅近く。"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* --- 基本設定 --- */
+      :root {
+        --primary-color: #2e4031; /* 濃い緑 */
+        --accent-color: #96b38a; /* 薄い緑 */
+        --bg-color: #fcfcfb; /* 全体の背景色 */
+        --cta-color: #d88e8e; /* 予約ボタン色 */
+        --bar-bg: #eef3ed; /* 帯の背景色 */
+        --line-green: #06c755; /* LINE色 */
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Noto Sans JP", sans-serif;
+        background-color: var(--bg-color);
+        color: #444;
+        line-height: 1.8;
+        letter-spacing: 0.05em;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: opacity 0.3s;
+      }
+      a:hover {
+        opacity: 0.7;
+      }
+
+      /* --- ヘッダー --- */
+      header {
+        background: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      }
+
+      .header-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 50px;
+        width: auto;
+      }
+
+      .pc-nav { display: none; }
+      .pc-nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .pc-nav a {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--primary-color);
+      }
+      .header-btn {
+        background-color: var(--cta-color);
+        color: #fff !important;
+        padding: 0.5rem 1.2rem;
+        border-radius: 4px;
+      }
+
+      .sp-nav {
+        font-size: 0.8rem;
+        display: flex;
+        gap: 1rem;
+      }
+      .sp-nav a {
+        color: var(--primary-color);
+        font-weight: bold;
+      }
+
+      @media (min-width: 768px) {
+        .pc-nav { display: block; }
+        .sp-nav { display: none; }
+      }
+
+      /* --- メインビジュアル --- */
+      .hero {
+        position: relative;
+        height: 60vh;
+        min-height: 400px;
+        background-image: url('interior.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.3);
+      }
+
+      .hero-text {
+        position: relative;
+        z-index: 1;
+        text-align: right;
+        color: #fff;
+        width: 90%;
+        max-width: 1000px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      }
+      .hero-text h2 {
+        font-size: 1.8rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+      .hero-text p {
+        font-size: 1.1rem;
+        margin: 0;
+      }
+      @media (min-width: 768px) {
+        .hero-text h2 { font-size: 2.5rem; }
+      }
+
+      /* --- コンテンツ共通 --- */
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem;
+      }
+      .section-title {
+        text-align: center;
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+        letter-spacing: 0.1em;
+      }
+      .section-title::after {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 2px;
+        background: var(--cta-color);
+        margin: 1rem auto 0;
+      }
+
+      /* --- サロン案内（Introduction） --- */
+      .intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .intro p {
+        margin-bottom: 1.5rem;
+      }
+      
+      /* ボタンのスタイル（aタグもbuttonタグも同じ見た目にする） */
+      .btn-more {
+        display: inline-block;
+        border: 1px solid var(--primary-color);
+        padding: 0.7rem 2rem;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        transition: 0.3s;
+        background: #fff;
+        color: var(--primary-color);
+        cursor: pointer; /* マウスカーソルを指マークに */
+        font-family: inherit; /* フォントを継承 */
+      }
+      .btn-more:hover {
+        background: var(--primary-color);
+        color: #fff;
+      }
+
+      /* --- 効能・詳細セクション（初期状態は隠す） --- */
+      #effects {
+        display: none; /* ここで隠しています */
+        background-color: #fff;
+        padding-top: 2rem; /* 開いた時の余白 */
+        animation: fadeIn 0.5s ease-in-out; /* ふわっと表示 */
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .effects-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      @media (min-width: 768px) {
+        .effects-grid {
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+        }
+      }
+      .effect-img img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      }
+      .effect-item {
+        margin-bottom: 1.5rem;
+        border-bottom: 1px dashed #ddd;
+        padding-bottom: 1rem;
+      }
+      .effect-item:last-child {
+        border-bottom: none;
+      }
+      .effect-title {
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+      .effect-title span {
+        margin-right: 0.5rem;
+        font-size: 1.3rem;
+      }
+
+      /* --- お問い合わせバー --- */
+      .cta-bar {
+        background-color: var(--bar-bg);
+        text-align: center;
+        padding: 2rem 1rem;
+        margin: 4rem 0;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+      }
+      .cta-bar p {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+      .cta-btn {
+        display: inline-block;
+        background-color: var(--line-green);
+        color: #fff;
+        padding: 0.8rem 2rem;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+
+      /* --- 2カラム --- */
+      .columns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+      }
+      .col-left, .col-right {
+        flex: 1;
+        min-width: 300px;
+      }
+      .col-box {
+        background: #fff;
+        padding: 2rem;
+        height: 100%;
+        box-sizing: border-box;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      }
+      .col-title {
+        font-size: 1.2rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        border-left: 4px solid var(--accent-color);
+        padding-left: 1rem;
+      }
+      .map-frame {
+        width: 100%;
+        height: 250px;
+        border: 0;
+        margin-bottom: 1rem;
+      }
+
+      /* --- コース・料金 --- */
+      .menu-grid {
+        display: grid;
+        gap: 1.5rem;
+      }
+      .menu-item {
+        background: #fff;
+        border: 1px solid #eee;
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        border-radius: 4px;
+      }
+      .menu-info h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1.1rem;
+        color: var(--primary-color);
+      }
+      .menu-price {
+        font-weight: bold;
+        color: var(--cta-color);
+        font-size: 1.2rem;
+      }
+      .menu-btn {
+        background: #fff;
+        border: 1px solid var(--cta-color);
+        color: var(--cta-color);
+        padding: 0.5rem 1.5rem;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+      .menu-btn:hover {
+        background: var(--cta-color);
+        color: #fff;
+      }
+
+      /* --- NEWS --- */
+      .news-list {
+        list-style: none;
+        padding: 0;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .news-list li {
+        border-bottom: 1px solid #eee;
+        padding: 1rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .news-date {
+        font-weight: bold;
+        color: var(--accent-color);
+        min-width: 100px;
+      }
+
+      /* --- フッター --- */
+      footer {
+        background: #f3f5f2;
+        padding: 4rem 1.5rem 2rem;
+        margin-top: 4rem;
+        font-size: 0.9rem;
+      }
+      .footer-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+      .footer-info h3 {
+        color: var(--primary-color);
+        margin-top: 0;
+      }
+      .sns-links a {
+        display: inline-block;
+        margin-right: 1rem;
+        background: #fff;
+        padding: 0.3rem 0.8rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        border: 1px solid #ddd;
+      }
+      .copyright {
+        text-align: center;
+        margin-top: 3rem;
+        font-size: 0.75rem;
+        color: #888;
+      }
+
+      /* --- 固定予約ボタン（スマホ用） --- */
+      .sticky-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--cta-color);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 999;
+        transition: transform 0.2s;
+      }
+      .sticky-btn:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <div class="header-inner">
+        <div class="logo">
+          <a href="#"><img src="your-logo.png" alt="Armoise Kim"></a>
+        </div>
+        
+        <nav class="pc-nav">
+          <ul>
+            <li><a href="#about">当サロンについて</a></li>
+            <li><a href="#menu">コース・料金</a></li>
+            <li><a href="#access">アクセス</a></li>
+            <li><a href="https://tol-app.jp/s/v7api00s4ga10xygx8tr" target="_blank" class="header-btn">ご予約</a></li>
+          </ul>
+        </nav>
+
+        <nav class="sp-nav">
+          <a href="#menu">Menu</a>
+          <a href="#access">Access</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h2>女性の願いを叶える<br>韓方熟成よもぎ蒸しサロン</h2>
+        <p>3年熟成よもぎ × モリンガ × ハーブの力で<br>疲れた心と身体を芯から癒します</p>
+      </div>
+    </section>
+
+    <section id="about" class="container intro">
+      <h2 class="section-title">当サロンのご案内</h2>
+      <p>
+        Armoise Kim（アルモワーズキム）は、JR環状線「野田駅」徒歩3分、地下鉄「玉川駅」徒歩3分の場所にございますプライベートサロンです。<br><br>
+        「冷えを改善したい」「美肌になりたい」「疲れを取りたい」など、女性特有のお悩みに合わせて、3年熟成よもぎ・モリンガ・ハーブをブレンドしたオリジナルのよもぎ蒸しをご提案させていただきます。<br><br>
+        また、蒸している間の「無料韓国語会話講座」も好評いただいております。心身ともに温まるひとときをお過ごしください。
+      </p>
+      
+      <button onclick="toggleEffects()" id="btn-more-effects" class="btn-more">もっと詳しく知る</button>
+    </section>
+
+    <section id="effects" class="container">
+      <h2 class="section-title">効能とこだわり</h2>
+      
+      <div class="effects-grid">
+        <div class="effect-text">
+          <p style="margin-bottom:1.5rem;">
+            韓方よもぎ蒸しは、韓国伝統の健康法であり、よもぎの蒸気を利用して体にさまざまな効果をもたらします。
+          </p>
+
+          <div class="effect-item">
+            <div class="effect-title"><span>🌿</span>デトックス作用</div>
+            <p>よもぎ成分が皮膚から吸収され、体内の老廃物や毒素を排出し、解毒効果を高めます。</p>
+          </div>
+
+          <div class="effect-item">
+            <div class="effect-title"><span>🌿</span>血行促進・冷え改善</div>
+            <p>蒸気が血管を拡張させ、血流を改善。新陳代謝が促進され、冷え性の改善に繋がります。</p>
+          </div>
+
+          <div class="effect-item">
+            <div class="effect-title"><span>🌿</span>リラックス効果</div>
+            <p>よもぎの香りと温かい蒸気が筋肉をほぐし、深いリラックス効果をもたらします。</p>
+          </div>
+
+          <div class="effect-item">
+            <div class="effect-title"><span>🌿</span>美肌効果</div>
+            <p>発汗により毛穴の汚れを洗い流し、肌のトーンアップや、抗酸化物質による肌保護が期待できます。</p>
+          </div>
+
+          <div class="effect-item">
+            <div class="effect-title"><span>🌿</span>婦人科系の悩み改善</div>
+            <p>生理不順や生理痛、更年期障害など、女性特有のお悩みの緩和や、産後の子宮回復ケアにも。</p>
+          </div>
+        </div>
+
+        <div class="effect-img">
+          <img src="menu-board.jpg" alt="よもぎ蒸しの効能とブレンド">
+        </div>
+      </div>
+    </section>
+    <div class="cta-bar">
+      <p>ご予約・お問い合わせは公式LINEからお気軽に</p>
+      <a href="https://line.me/R/ti/p/@775ghwik" target="_blank" class="cta-btn">LINEでお問い合わせ</a>
+    </div>
+
+    <div class="container columns">
+      <div class="col-left">
+        <div class="col-box">
+          <h3 class="col-title">こんな方におすすめです</h3>
+          <p>お肌や体調に自信が持てれば、毎日はもっと輝きます。以下のようなお悩みをお持ちの方に、当店の韓方熟成よもぎ蒸しは特におすすめです。</p>
+          <ul style="list-style:none; padding:0; line-height:2;">
+            <li>🌿 <strong>冷え性・むくみ</strong>がつらい方</li>
+            <li>🌿 <strong>生理不順・生理痛・PMS</strong>でお悩みの方</li>
+            <li>🌿 <strong>美肌・透明感</strong>を手に入れたい方</li>
+            <li>🌿 <strong>デトックス・ダイエット</strong>をしたい方</li>
+            <li>🌿 <strong>韓国語</strong>に興味がある・話してみたい方</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="access" class="col-right">
+        <div class="col-box">
+          <h3 class="col-title">アクセスマップ</h3>
+          <p>JR環状線「野田駅」・地下鉄千日前線「玉川駅」から徒歩約3分。<br>シキシマビルの2階を通って3階にお上がりください。</p>
+          
+          <iframe 
+            src="https://maps.google.com/maps?q=大阪府大阪市福島区吉野1-8-14&output=embed&z=16"
+            class="map-frame" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+          
+          <a href="https://www.google.com/maps/search/?api=1&query=大阪府大阪市福島区吉野1-8-14+シキシマビル" target="_blank" class="btn-more" style="font-size:0.8rem;">Googleマップで開く</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="menu" class="container">
+      <h2 class="section-title">コース・料金</h2>
+      <p style="text-align:center; margin-bottom:2rem;">
+        婦人用・デトックス用・美肌用の3種のオリジナルブレンドから<br>
+        お悩みに合わせてお選びいただけます。
+      </p>
+
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-info">
+            <h3>韓方熟成よもぎ蒸し (40分)</h3>
+            <p style="font-size:0.9rem; color:#666;">基本のコース。初めての方にもおすすめです。</p>
+          </div>
+          <div style="text-align:right;">
+            <div class="menu-price">¥4,000</div>
+            <a href="https://tol-app.jp/s/v7api00s4ga10xygx8tr/wzwk2y/input" target="_blank" class="menu-btn">予約する</a>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-info">
+            <h3>ペア割 (40分/2名様)</h3>
+            <p style="font-size:0.9rem; color:#666;">お友達やご家族と一緒に。お得なペア料金です。</p>
+          </div>
+          <div style="text-align:right;">
+            <div class="menu-price">¥7,000</div>
+            <a href="https://tol-app.jp/s/v7api00s4ga10xygx8tr/3bvvaz/input" target="_blank" class="menu-btn">予約する</a>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-info">
+            <h3>韓方熟成よもぎ蒸し (60分)</h3>
+            <p style="font-size:0.9rem; color:#666;">じっくり温まりたい方へ。たっぷりの60分。</p>
+          </div>
+          <div style="text-align:right;">
+            <div class="menu-price">¥5,000</div>
+            <a href="https://tol-app.jp/s/v7api00s4ga10xygx8tr/h4u35s/input" target="_blank" class="menu-btn">予約する</a>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-info">
+            <h3>ペア割 (60分/2名様)</h3>
+            <p style="font-size:0.9rem; color:#666;">2人でゆったり60分。心も体もリフレッシュ。</p>
+          </div>
+          <div style="text-align:right;">
+            <div class="menu-price">¥9,000</div>
+            <a href="https://tol-app.jp/s/v7api00s4ga10xygx8tr/2678w2/input" target="_blank" class="menu-btn">予約する</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="news" class="container" style="padding-top:0;">
+      <h2 class="section-title">NEWS</h2>
+      <ul class="news-list">
+        <li>
+          <span class="news-date">2025.12.13</span>
+          <span class="news-text">ホームページをリニューアルしました。</span>
+        </li>
+        <li>
+          <span class="news-date">2025.05.15</span>
+          <span class="news-text">これからの季節にぴったりな「デトックス用ブレンド」が人気です🌿</span>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-info">
+          <h3>Armoise Kim</h3>
+          <p>
+            〒553-0006<br>
+            大阪府大阪市福島区吉野 1-8-14 シキシマビル3F<br>
+            [営業時間] 11:00〜16:00<br>
+            [定休日] 火曜日 ＋ 不定休
+          </p>
+        </div>
+        <div class="footer-links">
+          <div class="sns-links">
+            <a href="https://tol-app.jp/s/v7api00s4ga10xygx8tr" target="_blank">Web予約</a>
+            <a href="https://line.me/R/ti/p/@775ghwik" target="_blank" style="color:#06c755; border-color:#06c755;">LINE公式</a>
+            <a href="https://www.instagram.com/armoise_kim/" target="_blank" style="color:#E1306C; border-color:#E1306C;">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <p class="copyright">© 2025 Armoise Kim. All Rights Reserved.</p>
+    </footer>
+
+    <a href="https://tol-app.jp/s/v7api00s4ga10xygx8tr" target="_blank" class="sticky-btn">
+      Web予約する
+    </a>
+
+    <script>
+      function toggleEffects() {
+        var effectsSection = document.getElementById("effects");
+        var btn = document.getElementById("btn-more-effects");
+        
+        if (effectsSection.style.display === "none" || effectsSection.style.display === "") {
+          effectsSection.style.display = "block";
+          btn.textContent = "閉じる"; // ボタンの文字を閉じるに変更
+        } else {
+          effectsSection.style.display = "none";
+          btn.textContent = "もっと詳しく知る"; // 元に戻す
+        }
+      }
+    </script>
+
+  </body>
+</html>
